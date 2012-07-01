@@ -8,11 +8,18 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 
-	<h:outputStylesheet library="css" name="styles.css"/>
+	<h:outputStylesheet library="css" name="styles.css" />
 	<title><ui:insert name="title" /></title>
 </h:head>
 <h:body>
 	<ui:insert name="body" />
+
+	<div>
+		<h:outputText value="#{request.remoteUser} "></h:outputText>
+		<h:form>
+			<h:outputLink value="#{request.contextPath}/j_spring_security_logout">logout</h:outputLink>
+		</h:form>
+	</div>
 </h:body>
 </html>
 

@@ -6,9 +6,13 @@
                     http://www.springframework.org/schema/security 
                     http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 <!-- http://static.springsource.org/spring-security/site/tutorial.html -->
-    <http use-expressions="true">
-        <intercept-url pattern="/**" access="permitAll" />
-        
+<!-- http://static.springsource.org/spring-security/site/docs/3.1.x/reference/springsecurity.html -->
+    <http use-expressions="true" auto-config="true">
+        <intercept-url pattern="/faces/index.*" access="permitAll" />
+        <intercept-url pattern="/faces/admin.*" access="hasRole('admin')" />
+        <intercept-url pattern="/faces/anyLogged.*" access="hasAnyRole('admin', 'user')" />
+        <intercept-url pattern="/faces/user.*" access="hasRole('user')" />
+        <logout />
         <form-login />
     </http>
 
@@ -19,10 +23,8 @@
     <authentication-manager>
         <authentication-provider>
             <user-service>
-                <user name="rod" password="koala" authorities="supervisor, teller, user" />
-                <user name="dianne" password="emu" authorities="teller, user" />
-                <user name="scott" password="wombat" authorities="user" />
-                <user name="peter" password="opal" authorities="user" />
+                <user name="admin" password="admin" authorities="admin, user" />
+                <user name="user" password="user" authorities="user" />
             </user-service>
         </authentication-provider>
     </authentication-manager>
