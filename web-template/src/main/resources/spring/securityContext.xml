@@ -7,7 +7,8 @@
                     http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 <!-- http://static.springsource.org/spring-security/site/tutorial.html -->
 <!-- http://static.springsource.org/spring-security/site/docs/3.1.x/reference/springsecurity.html -->
-    <http use-expressions="true" auto-config="true">
+    
+    <http auto-config="true" use-expressions="true" once-per-request="true">
         <intercept-url pattern="/faces/index.*" access="permitAll" />
         <intercept-url pattern="/faces/admin.*" access="hasRole('admin')" />
         <intercept-url pattern="/faces/anyLogged.*" access="hasAnyRole('admin', 'user')" />
@@ -27,5 +28,11 @@
                 <user name="user" password="user" authorities="user" />
             </user-service>
         </authentication-provider>
+        <authentication-provider ref="myCustom" />
+        
     </authentication-manager>
+    
+    <beans:bean id="myCustom" class="com.pichler.security.MyCustomAuthenticationProvider">	
+    </beans:bean>
+    
 </beans:beans>   
