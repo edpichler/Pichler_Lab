@@ -10,12 +10,31 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
+import com.paypal.sdk.exceptions.PayPalException;
+import com.paypal.soap.api.GetTransactionDetailsResponseType;
 import com.pichler.paypal.util.PayPalUtil;
 
-@ManagedBean(name = "canceled")
+@ManagedBean(name = "success")
 @RequestScoped
 public class Success {
 	private String output;
+
+	private String transactionCode;
+
+	/**
+	 * @return the transactionCode
+	 */
+	public String getTransactionCode() {
+		return transactionCode;
+	}
+
+	/**
+	 * @param transactionCode
+	 *            the transactionCode to set
+	 */
+	public void setTransactionCode(String transactionCode) {
+		this.transactionCode = transactionCode;
+	}
 
 	/**
 	 * @return the output
@@ -26,7 +45,7 @@ public class Success {
 		try {
 			PayPalUtil.verificaIPN(FacesContext.getCurrentInstance());
 			StringBuilder saida = new StringBuilder();
-			
+
 			ExternalContext externalContext = FacesContext.getCurrentInstance()
 					.getExternalContext();
 			Map<String, String> requestMap = externalContext
@@ -42,7 +61,8 @@ public class Success {
 			output = saida.toString();
 
 		} catch (Exception e) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(e.getMessage()));
 		}
 
 		return output;
@@ -54,5 +74,17 @@ public class Success {
 	 */
 	public void setOutput(String output) {
 		this.output = output;
+
+	}
+
+	public String status() throws PayPalException {
+		GetTransactionDetailsResponseType transactionDetails = PayPalUtil
+				.getTransactionDetails(this.transactionCode);
+		FacesContext.getCurrentInstance().addMessage(
+				null,
+				new FacesMessage(""
+						+ transactionDetails.getPaymentTransactionDetails()
+								.getPaymentInfo().getPaymentStatus()));
+		return null;
 	}
 }

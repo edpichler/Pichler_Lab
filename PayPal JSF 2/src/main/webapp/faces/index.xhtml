@@ -17,44 +17,60 @@
 <!-- 		https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_html_Appx_websitestandard_htmlvariables -->
 		<form target="paypal"
 			action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-<!-- 			<form target="paypal" -->
-<!-- 			action="https://www.paypal.com/cgi-bin/webscr" method="post"> -->
-			<input type="hidden" name="cmd" value="_xclick" /> 
-			<input type="hidden" name="item_name" value="Tanque de guerra" />
-			<input type="hidden" name="currency_code" value="BRL" /> 
-			<input type="hidden" name="amount" value="999.99" /> 
-			<input type="hidden" name="business" value="bradok_1343498302_biz@gmail.com" /> <!-- meu paypal ID -->
-			<input type="hidden" name="item_number" value="ItemNumberOnMyBase" /> 
-			<input type="hidden" name="notify_url" value="http://localhost:8080/paypal-template/faces/IPNPayPalListener.jsf" />
+			<!-- 			<form target="paypal" -->
+			<!-- 			action="https://www.paypal.com/cgi-bin/webscr" method="post"> -->
+			<input type="hidden" name="cmd" value="_xclick" /> <input
+				type="hidden" name="item_name" value="Tanque de guerra" /> <input
+				type="hidden" name="currency_code" value="BRL" /> <input
+				type="hidden" name="amount" value="999.99" /> <input type="hidden"
+				name="business" value="bradok_1343498302_biz@gmail.com" />
+			<!-- meu paypal ID -->
+			<input type="hidden" name="item_number" value="ItemNumberOnMyBase" />
+			<input type="hidden" name="notify_url"
+				value="http://localhost:8080/paypal-template/faces/IPNPayPalListener.jsf" />
 
 			<!-- address override -->
-			<input type="hidden" name="address_ override" value="1" /> 
-			<input type="hidden" name="email" value="megan_1343498542_per@gmail.com" />
+			<input type="hidden" name="address_ override" value="1" /> <input
+				type="hidden" name="email" value="megan_1343498542_per@gmail.com" />
 
 
 			<!-- styling -->
-			<input type="hidden" name="lc" value="BR" />
- 			<input type="hidden" name="no_note" value="1" /> <!-- mensagem ao comprar -->
-			<input type="hidden" name="no_shipping" value="1" /><!-- prompt address -->
-			<input type="hidden" name="return" value="http://localhost:8080/paypal-template/faces/success.jsf" />
-			<input type="hidden" name="cancel_return" value="http://localhost:8080/paypal-template/faces/canceled.jsf" />
+			<input type="hidden" name="lc" value="BR" /> <input type="hidden"
+				name="no_note" value="1" />
+			<!-- mensagem ao comprar -->
+			<input type="hidden" name="no_shipping" value="1" />
+			<!-- prompt address -->
+			<input type="hidden" name="return"
+				value="http://localhost:8080/paypal-template/faces/success.jsf" />
+			<input type="hidden" name="cancel_return"
+				value="http://localhost:8080/paypal-template/faces/canceled.jsf" />
 			<input type="hidden" name="cbt" value="Retonar ai minhaempresa.com" />
-			<input type="hidden" name="rm" value="2" /> <!--  retornar usando POST -->
-			<input type="hidden" name="charset" value="UTF-8" /> 
-			
-			
-			<input type="image"
+			<input type="hidden" name="rm" value="2" />
+			<!--  retornar usando POST -->
+			<input type="hidden" name="charset" value="UTF-8" /> <input
+				type="image"
 				src="https://www.paypalobjects.com/pt_BR/BR/i/btn/btn_buynowCC_LG.gif"
 				border="0" name="submit"
 				alt="PayPal - A maneira mais fácil e segura de efetuar pagamentos online!" /><img
 				alt="" border="0"
 				src="https://www.paypalobjects.com/pt_BR/i/scr/pixel.gif" width="1"
 				height="1" />
+
 		</form>
+
+		<p />
+		<h:form>
+			
+			<h:outputText>PayPal Transaction Code</h:outputText>
+			<h:inputText value="#{index.transactionCode}" />
+			<h:commandButton value="Ver status da compra"
+				action="#{index.status}" />
+		</h:form>
+		<p />
 		
 		*As contas de comprador e vendedor foram criadas no developer.paypal.com. Para entrar com elas, precisa ir no sandbox.paypal.com.
 		
-		<br/>
+		<br />
 	</ui:define>
-		
+
 </ui:composition>

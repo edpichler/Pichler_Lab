@@ -12,7 +12,7 @@ import javax.faces.context.FacesContext;
 
 import com.pichler.paypal.util.PayPalUtil;
 
-@ManagedBean(name = "success")
+@ManagedBean(name = "canceled")
 @RequestScoped
 public class Canceled {
 	private String output;
