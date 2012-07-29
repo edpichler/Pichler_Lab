@@ -8,15 +8,13 @@
 	template="/faces/templates/html5page.xhtml">
 
 	<ui:define name="title">
-    Compra efetuada.
-    
+    Cancelado
   	</ui:define>
 
 	<ui:define name="body">
-		Compra efetuada!
-	<p/>	
-		
-		<h:outputText value="#{success.output}" escape="false"/>
+		Compra cancelada.
+		<br/>
+		<h:outputText value="#{canceled.output}" escape="false"/>
 	</ui:define>
 		
 </ui:composition>

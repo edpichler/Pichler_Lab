@@ -12,7 +12,7 @@
   	</ui:define>
 
 	<ui:define name="body">
-		Compre abaixo.
+		Exemplo botão do paypal:
 
 <!-- 		https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_html_Appx_websitestandard_htmlvariables -->
 		<form target="paypal"
@@ -20,12 +20,12 @@
 <!-- 			<form target="paypal" -->
 <!-- 			action="https://www.paypal.com/cgi-bin/webscr" method="post"> -->
 			<input type="hidden" name="cmd" value="_xclick" /> 
-			<input type="hidden" name="item_name" value="Tanque de guerra (promoção)" />
+			<input type="hidden" name="item_name" value="Tanque de guerra" />
 			<input type="hidden" name="currency_code" value="BRL" /> 
 			<input type="hidden" name="amount" value="999.99" /> 
 			<input type="hidden" name="business" value="bradok_1343498302_biz@gmail.com" /> <!-- meu paypal ID -->
 			<input type="hidden" name="item_number" value="ItemNumberOnMyBase" /> 
-			<input type="hidden" name="notify_url" value="http://localhost/PayPal_IPN" />
+			<input type="hidden" name="notify_url" value="http://localhost:8080/paypal-template/faces/IPNPayPalListener.jsf" />
 
 			<!-- address override -->
 			<input type="hidden" name="address_ override" value="1" /> 
@@ -34,13 +34,13 @@
 
 			<!-- styling -->
 			<input type="hidden" name="lc" value="BR" />
- 			<input type="hidden" name="no_note" value="0" /> <!-- mensagem ao comprar -->
+ 			<input type="hidden" name="no_note" value="1" /> <!-- mensagem ao comprar -->
 			<input type="hidden" name="no_shipping" value="1" /><!-- prompt address -->
 			<input type="hidden" name="return" value="http://localhost:8080/paypal-template/faces/success.jsf" />
-			<input type="hidden" name="cancel_return" value="http://localhost:8080/paypal-template/faces/success.jsf" />
-			<input type="hidden" name="cbt" value="Retonar_aquela_pagina_marota" />
+			<input type="hidden" name="cancel_return" value="http://localhost:8080/paypal-template/faces/canceled.jsf" />
+			<input type="hidden" name="cbt" value="Retonar ai minhaempresa.com" />
 			<input type="hidden" name="rm" value="2" /> <!--  retornar usando POST -->
-			<input type="hidden" name="charset" value="UTF-8" /> <!--  retornar usando POST -->
+			<input type="hidden" name="charset" value="UTF-8" /> 
 			
 			
 			<input type="image"

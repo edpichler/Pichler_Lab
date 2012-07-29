@@ -8,15 +8,10 @@
 	template="/faces/templates/html5page.xhtml">
 
 	<ui:define name="title">
-    Compra efetuada.
-    
-  	</ui:define>
+    </ui:define>
 
 	<ui:define name="body">
-		Compra efetuada!
-	<p/>	
-		
-		<h:outputText value="#{success.output}" escape="false"/>
+		<h:outputText value="#{ipnListener.output}"/>
 	</ui:define>
 		
 </ui:composition>
