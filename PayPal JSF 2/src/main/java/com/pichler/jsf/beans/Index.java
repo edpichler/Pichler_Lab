@@ -1,13 +1,8 @@
 package com.pichler.jsf.beans;
 
-import java.io.IOException;
-import java.util.Map;
-import java.util.Set;
-
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
 import com.paypal.sdk.exceptions.PayPalException;
