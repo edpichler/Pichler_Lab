@@ -1,6 +1,7 @@
 package com.myPackage;
 
 public class Main {
+	
 	public static void main(String[] args) {
 		Casa c = new Casa();
 		c.setNumero(200);
@@ -12,7 +13,6 @@ public class Main {
 		}
 		//throw exception below
 		c.setNumero(-2, 2);
-		
-	}	
+	}
+	
 }
-

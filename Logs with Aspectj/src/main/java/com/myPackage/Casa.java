@@ -1,5 +1,7 @@
 package com.myPackage;
 
+import aspects.Loggable;
+
 public class Casa {
 	int numero;
 
@@ -31,7 +33,6 @@ public class Casa {
 		}
 		this.numero = numero;
 	}
-
 	public int getRoomsAvailable() {
 		return 10;
 	}
