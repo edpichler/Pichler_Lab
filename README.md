@@ -1,4 +1,4 @@
-templates
+Project templates
 =========
 
 Several templates
