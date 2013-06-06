@@ -3,4 +3,4 @@ templates
 
 Several templates
 
- - web-template: see the pom.xml for details.
+ Check each project to see details about it. 
