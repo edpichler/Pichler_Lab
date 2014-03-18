@@ -1,4 +1,5 @@
 Project templates
 =========
 
-Several templates. Check each project to see details about it. 
+Several templates and proof of concepts. 
+Each folder is a project. There is the minimum documentation once the projects are very simple.
